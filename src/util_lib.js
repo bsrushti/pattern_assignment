@@ -1,8 +1,8 @@
 const createObject = function(inputArray) {
   return {
     type : inputArray[2],
-    height : inputArray[3],
-    width : inputArray[4],
+    height : +inputArray[3],
+    width : +inputArray[4],
   }
 }
 
@@ -19,11 +19,7 @@ const createRectangleObject = function(inputArray) {
 } 
 
 const repeatCharacters = function(character, numberOfTimes) {
-  let line = "";
-  for(let index = 0; index < numberOfTimes; index++) {
-    line = line + character;
-  }
-  return line;
+  return new Array(numberOfTimes).fill(character).join("");
 }
 
 const repeatStars = function(numberOfTimes) {

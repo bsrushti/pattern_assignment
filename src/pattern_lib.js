@@ -7,13 +7,7 @@ const {repeatSpaces} =lib;
 //---------Rectangle-------//
 
 const generateFilledRectangle = function(height, width) {
-  let filledRectangle = "";
-  let delimiter = "";
-  for(let rowIndex = 0; rowIndex < height; rowIndex++) {
-    filledRectangle += delimiter + repeatStars(width);
-    delimiter = "\n";
-  }
-  return filledRectangle;
+  return new Array(height).fill(width).map(repeatStars).join("\n");
 }
 
 const middlePartOfHollowRectangle = function(height, width) {
