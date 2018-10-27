@@ -1,9 +1,9 @@
-const {generateDiamond} = require("./src/pattern_lib.js");
-
+const {generateDiamond} = require('./src/pattern_lib.js'); 
+const {createDiamondObject} = require('./src/util_lib.js');
 const main = function() {
-  let typeOfiamond = process.argv[2];
-  let height = +process.argv[3];
-  return generateDiamond(typeOfiamond, height); 
+  let input = process.argv; 
+  let diamondProperties = createDiamondObject(input);
+  return generateDiamond(diamondProperties); 
 }
 
 console.log(main());

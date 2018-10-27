@@ -1,11 +1,12 @@
-const {repeatCharacters} = require('./util_lib.js'); 
-const {repeatStars} = require('./util_lib.js'); 
-const {repeatHyphen} = require('./util_lib.js'); 
-const {repeatSpaces} = require('./util_lib.js'); 
+const lib = require('./util_lib.js'); 
+const {repeatCharacters} =lib; 
+const {repeatStars} =lib; 
+const {repeatHyphen} =lib; 
+const {repeatSpaces} =lib; 
 
 //---------Rectangle-------//
 
-const generateFilledRectangle = function(width,height) {
+const generateFilledRectangle = function(height, width) {
   let filledRectangle = "";
   let delimiter = "";
   for(let rowIndex = 0; rowIndex < height; rowIndex++) {
@@ -15,7 +16,7 @@ const generateFilledRectangle = function(width,height) {
   return filledRectangle;
 }
 
-const middlePartOfHollowRectangle = function(width,height) {
+const middlePartOfHollowRectangle = function(height, width) {
   let middlePart = "";
   let delimiter = "\n";
   for(let index = 1; index <= height; index++) {
@@ -24,14 +25,14 @@ const middlePartOfHollowRectangle = function(width,height) {
   return middlePart;
 }
 
-const generateHollowRectangle = function(width,height) {
+const generateHollowRectangle = function(height, width) {
   let delimiter = "\n";
   let line = repeatCharacters("*",width) ;
-  let middleLines =  delimiter + middlePartOfHollowRectangle(width-2,height-2);  
+  let middleLines =  delimiter + middlePartOfHollowRectangle(height-2,width-2);  
   return line + middleLines + line;
 }
 
-const generateAlternatingRectangle = function(width,height) {
+const generateAlternatingRectangle = function(height, width) {
   let alternatingRectangle = "";
   let delimiter = "";
   for(let rowIndex = 0; rowIndex < Math.ceil(height/2); rowIndex++) {
@@ -44,13 +45,12 @@ const generateAlternatingRectangle = function(width,height) {
   return alternatingRectangle;
 }
 
-const generateRectangle = function(typeOfRectangle,width,height) {
-  let generateRectangle = {};
-  generateRectangle.typeOfRectangle = typeOfRectangle;
-  generateRectangle.filled = generateFilledRectangle(width,height);
-  generateRectangle.alternate = generateAlternatingRectangle(width,height);
-  generateRectangle.hollow = generateHollowRectangle(width,height);
-  return generateRectangle[typeOfRectangle];
+const generateRectangle = function(rectangleProperties) {
+  let {type, height, width} = rectangleProperties;
+  rectangleProperties['filled'] = generateFilledRectangle(height, width);
+  rectangleProperties['hollow'] = generateHollowRectangle(height, width);
+  rectangleProperties['alternate'] = generateAlternatingRectangle(height, width);
+  return rectangleProperties[type];
 }
 
 
@@ -81,12 +81,11 @@ const generateRightTriangle = function(height) {
   return rightTriangle;
 }
 
-const generateTriangle = function(typeOfTriangle, height) {
-let generateTriangle = {};
-  generateTriangle.typeOfTriangle = typeOfTriangle;
-  generateTriangle.left = generateLeftTriangle(height);
-  generateTriangle.right = generateRightTriangle(height);
-  return generateTriangle[typeOfTriangle];
+const generateTriangle = function(triangleProperties) {
+  let {type, height} = triangleProperties;
+  triangleProperties['left'] = generateLeftTriangle(height);
+  triangleProperties['right'] = generateRightTriangle(height);
+  return triangleProperties[type];
 }
 
 
@@ -111,7 +110,7 @@ const generateLowerFilledPart = function(height) {
   let lowerPart = "";
   let spacesRequired = 2;
   let delimiter = "";
-  for( let index = height-2; index >= 1 ; index -= 2 ) {
+  for( let index = height-2; index >= 1; index -= 2 ) {
     lowerPart += delimiter;
     lowerPart += repeatSpaces( spacesRequired )+ repeatCharacters("*",index);
     spacesRequired++; 
@@ -159,7 +158,7 @@ const generateLowerPart = function(height) {
   let spacesRequired = 2;
   let delimiter = "\n";
   let bottomLine = repeatSpaces(Math.ceil(height/2))+repeatCharacters("*",1);
-  for(let index = height-4; index >=1 ; index-=2) {
+  for(let index = height-4; index >=1; index-=2) {
     lowerPart += repeatSpaces( spacesRequired )+ "*"+repeatSpaces(index)+"*";
     lowerPart += delimiter;
     spacesRequired++; 
@@ -202,7 +201,7 @@ const generateLowerAngledPart = function(height) {
   let lowerPart = "";
   let spacesRequired = 2;
   let delimiter = "\n";
-  for(let index = height - 4; index >= 1 ; index -= 2) {
+  for(let index = height - 4; index >= 1; index -= 2) {
     lowerPart += repeatSpaces( spacesRequired )+  "\\"+repeatSpaces(index)+"/";
     lowerPart += delimiter;
     spacesRequired++; 
@@ -216,13 +215,12 @@ const generateAngledDiamond = function(height) {
 
 /* Angled Diamond x---------------*/
 
-const generateDiamond = function(typeOfDiamond, height) {
-  let generateDiamond = {};
-  generateDiamond.typeOfDiamond = typeOfDiamond;
-  generateDiamond.filled = generateFilledDiamond(height);
-  generateDiamond.angled = generateAngledDiamond(height);
-  generateDiamond.hollow = generateHollowDiamond(height);
-  return generateDiamond[typeOfDiamond];
+const generateDiamond = function(diamondProperties) {
+  let {type, height} = diamondProperties;
+  diamondProperties['filled'] = generateFilledDiamond(height);
+  diamondProperties['angled'] = generateAngledDiamond(height);
+  diamondProperties['hollow'] = generateHollowDiamond(height);
+  return diamondProperties[type];
 }
 
 //--------------
