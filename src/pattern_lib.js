@@ -1,24 +1,9 @@
-const repeatSpaces = function(numberOfTimes) {
-  return repeatCharacters(" ",numberOfTimes);
-}
-
-const repeatCharacters = function(character, numberOfTimes){
-  let characters = "";
-  for(let index = 1; index <= numberOfTimes; index++) {
-    characters += character;
-  }
-  return characters;
-}
+const {repeatCharacters} = require('./util_lib.js'); 
+const {repeatStars} = require('./util_lib.js'); 
+const {repeatHyphen} = require('./util_lib.js'); 
+const {repeatSpaces} = require('./util_lib.js'); 
 
 //---------Rectangle-------//
-
-const repeatStars = function(numberOfTimes) {
- return repeatCharacters("*",numberOfTimes);
-}
-
-const repeatHyphen = function(numberOfTimes) {
- return repeatCharacters("-",numberOfTimes);
-}
 
 const generateFilledRectangle = function(width,height) {
   let filledRectangle = "";
@@ -33,7 +18,7 @@ const generateFilledRectangle = function(width,height) {
 const middlePartOfHollowRectangle = function(width,height) {
   let middlePart = "";
   let delimiter = "\n";
-  for(index = 1; index <= height; index++) {
+  for(let index = 1; index <= height; index++) {
     middlePart += "*" + repeatSpaces(width) + "*" + delimiter;
   }
   return middlePart;
@@ -60,7 +45,6 @@ const generateAlternatingRectangle = function(width,height) {
 }
 
 const generateRectangle = function(typeOfRect,width,height) {
-
   if(typeOfRect == "filled") {
      return generateFilledRectangle(width,height);
   }
