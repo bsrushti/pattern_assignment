@@ -1,8 +1,9 @@
 const lib = require('./util_lib.js'); 
-const {repeatCharacters} =lib; 
-const {repeatStars} =lib; 
-const {repeatHyphen} =lib; 
-const {repeatSpaces} =lib; 
+const {repeatCharacters} = lib; 
+const {repeatStars} = lib; 
+const {repeatHyphen} = lib; 
+const {repeatSpaces} = lib; 
+const {createStarHollowLine} = lib;
 
 //---------Rectangle-------//
 
@@ -11,18 +12,14 @@ const generateFilledRectangle = function(height, width) {
 }
 
 const middlePartOfHollowRectangle = function(height, width) {
-  let middlePart = "";
-  let delimiter = "\n";
-  for(let index = 1; index <= height; index++) {
-    middlePart += "*" + repeatSpaces(width) + "*" + delimiter;
-  }
-  return middlePart;
+  let elementArray = new Array(height).fill(width);
+  return elementArray.map(createStarHollowLine).join("\n");
 }
 
 const generateHollowRectangle = function(height, width) {
   let delimiter = "\n";
-  let line = repeatCharacters("*",width) ;
-  let middleLines =  delimiter + middlePartOfHollowRectangle(height-2,width-2);  
+  let line = repeatCharacters("*",width) + delimiter;
+  let middleLines = middlePartOfHollowRectangle(height-2,width-2) + delimiter;  
   return line + middleLines + line;
 }
 
