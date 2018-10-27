@@ -34,8 +34,10 @@ const repeatSpaces = function(numberOfTimes) {
   return repeatCharacters(" ",numberOfTimes);
 }
 
-const createStarHollowLine = function(length) {
-  return "*"+ repeatSpaces(length) + "*";
+const generateHollowLine = function(character) {
+  return function(length) {
+    return character+repeatSpaces(length)+character;
+  }
 }
 
 
@@ -47,6 +49,6 @@ module.exports={
   createDiamondObject,
   createTriangleObject,
   createRectangleObject,
-  createStarHollowLine
+  generateHollowLine
 };
 

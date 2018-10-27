@@ -3,7 +3,7 @@ const {repeatCharacters} = lib;
 const {repeatStars} = lib; 
 const {repeatHyphen} = lib; 
 const {repeatSpaces} = lib; 
-const {createStarHollowLine} = lib;
+const {generateHollowLine} = lib;
 
 //---------Rectangle-------//
 
@@ -17,10 +17,10 @@ const middlePartOfHollowRectangle = function(height, width) {
 }
 
 const generateHollowRectangle = function(height, width) {
-  let delimiter = "\n";
-  let line = repeatCharacters("*",width) + delimiter;
-  let middleLines = middlePartOfHollowRectangle(height-2,width-2) + delimiter;  
-  return line + middleLines + line;
+  let line = repeatCharacters("*",width)+"\n";
+  let elementArray = new Array(height).fill(width-2);
+  let middlePart = elementArray.map(generateHollowLine("*")).join("\n")+"\n";
+  return line + middlePart + line;
 }
 
 const generateAlternatingRectangle = function(height, width) {
