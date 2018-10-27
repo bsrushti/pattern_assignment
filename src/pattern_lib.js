@@ -44,17 +44,13 @@ const generateAlternatingRectangle = function(width,height) {
   return alternatingRectangle;
 }
 
-const generateRectangle = function(typeOfRect,width,height) {
-  if(typeOfRect == "filled") {
-     return generateFilledRectangle(width,height);
-  }
-  if(typeOfRect == "hollow") {
-    return generateHollowRectangle(width,height);
-  }
-  if(typeOfRect == "alternating") {
-    return generateAlternatingRectangle(width,height);
- }
-
+const generateRectangle = function(typeOfRectangle,width,height) {
+  let generateRectangle = {};
+  generateRectangle.typeOfRectangle = typeOfRectangle;
+  generateRectangle.filled = generateFilledRectangle(width,height);
+  generateRectangle.alternate = generateAlternatingRectangle(width,height);
+  generateRectangle.hollow = generateHollowRectangle(width,height);
+  return generateRectangle[typeOfRectangle];
 }
 
 
@@ -62,7 +58,7 @@ const generateRectangle = function(typeOfRect,width,height) {
 
 //---------Triangle-------//
 
-const leftTrianglePattern = function(height) {
+const generateLeftTriangle = function(height) {
   let leftTriangle = "";
   let delimiter = ""
   for(let rowIndex = 1; rowIndex <= height; rowIndex ++) {
@@ -72,7 +68,7 @@ const leftTrianglePattern = function(height) {
   return leftTriangle;
 }
 
-const rightTrianglePattern = function(height) {
+const generateRightTriangle = function(height) {
   let lengthOfLine = 0;
   let delimiter = "";
   let rightTriangle = "";
@@ -85,16 +81,12 @@ const rightTrianglePattern = function(height) {
   return rightTriangle;
 }
 
-const generateTriangle = function(kindOfTriangle, height) {
-
-  if(kindOfTriangle == "right") {
-    return rightTrianglePattern(height);
-  }
-
-  if(kindOfTriangle == "left") {
-    return leftTrianglePattern(height);
-  }
-
+const generateTriangle = function(typeOfTriangle, height) {
+let generateTriangle = {};
+  generateTriangle.typeOfTriangle = typeOfTriangle;
+  generateTriangle.left = generateLeftTriangle(height);
+  generateTriangle.right = generateRightTriangle(height);
+  return generateTriangle[typeOfTriangle];
 }
 
 
@@ -175,7 +167,7 @@ const generateLowerPart = function(height) {
   return lowerPart + bottomLineOfHollow(height);
 }  
 
-const generateHollow = function(height) {
+const generateHollowDiamond = function(height) {
   return generateUpperPart(height) + generateLowerPart(height);
 }
 
@@ -218,24 +210,19 @@ const generateLowerAngledPart = function(height) {
   return lowerPart + bottomLineOfAngled(height);
 }  
  
-const generateAngled = function(height) {
+const generateAngledDiamond = function(height) {
   return generateUpperAngledPart(height) + generateLowerAngledPart(height);
 }
 
 /* Angled Diamond x---------------*/
 
 const generateDiamond = function(typeOfDiamond, height) {
-
- if(typeOfDiamond == "filled") {
-   return generateFilledDiamond(height);
- }
- if(typeOfDiamond == "hollow") {
-   return generateHollow(height);
- }
- if(typeOfDiamond == "angled") {
-   return generateAngled(height);
- }
-
+  let generateDiamond = {};
+  generateDiamond.typeOfDiamond = typeOfDiamond;
+  generateDiamond.filled = generateFilledDiamond(height);
+  generateDiamond.angled = generateAngledDiamond(height);
+  generateDiamond.hollow = generateHollowDiamond(height);
+  return generateDiamond[typeOfDiamond];
 }
 
 //--------------
