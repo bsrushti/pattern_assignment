@@ -4,6 +4,7 @@ const {repeatStars} = lib;
 const {repeatHyphen} = lib; 
 const {repeatSpaces} = lib; 
 const {generateHollowLine} = lib;
+const {createAlternateLine} = lib;
 
 //---------Rectangle-------//
 
@@ -24,16 +25,8 @@ const generateHollowRectangle = function(height, width) {
 }
 
 const generateAlternatingRectangle = function(height, width) {
-  let alternatingRectangle = "";
-  let delimiter = "";
-  for(let rowIndex = 0; rowIndex < Math.ceil(height/2); rowIndex++) {
-    alternatingRectangle += delimiter;
-    delimiter = "\n";
-    alternatingRectangle += repeatStars(width);  
-    alternatingRectangle += delimiter;
-    alternatingRectangle += repeatHyphen(width);
-  }
-  return alternatingRectangle;
+  let elementArray = new Array(height).fill(width);
+  return elementArray.map(createAlternateLine(width)).join("\n");
 }
 
 const generateRectangle = function(rectangleProperties) {

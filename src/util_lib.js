@@ -40,6 +40,16 @@ const generateHollowLine = function(character) {
   }
 }
 
+const createAlternateLine = function() {
+  let toggle = 0;
+  return function(length) {
+    toggle = !toggle;
+    if(toggle) {
+      return repeatStars(length);
+    }
+    return repeatHyphen(length);
+  }
+};
 
 module.exports={
   repeatCharacters,
@@ -49,6 +59,7 @@ module.exports={
   createDiamondObject,
   createTriangleObject,
   createRectangleObject,
-  generateHollowLine
+  generateHollowLine,
+  createAlternateLine
 };
 
