@@ -46,13 +46,11 @@ const generateRectangle = function(rectangleProperties) {
 //---------Triangle-------//
 
 const generateLeftTriangle = function(height) {
-  let leftTriangle = "";
-  let delimiter = ""
-  for(let rowIndex = 1; rowIndex <= height; rowIndex ++) {
-    leftTriangle += delimiter + repeatCharacters("*",rowIndex);
-    delimiter = "\n";
+  let leftTriangle = [];
+  for(let rowIndex = 1; rowIndex <= height; rowIndex++) {
+    leftTriangle.push(repeatStars(rowIndex)+repeatSpaces(height-rowIndex));
   }
-  return leftTriangle;
+  return leftTriangle.join("\n");
 }
 
 const generateRightTriangle = function(height) {
