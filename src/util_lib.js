@@ -34,9 +34,9 @@ const repeatSpaces = function(numberOfTimes) {
   return repeatCharacters(" ",numberOfTimes);
 }
 
-const generateHollowLine = function(character) {
+const generateHollowLine = function(firstChar, secondChar) {
   return function(length) {
-    return character+repeatSpaces(length)+character;
+    return firstChar+repeatSpaces(length)+secondChar;
   }
 }
 

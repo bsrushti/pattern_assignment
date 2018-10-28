@@ -1,12 +1,10 @@
 const lib = require('./util_lib.js'); 
-const {repeatCharacters} = lib; 
 const {repeatStars} = lib; 
 const {repeatHyphen} = lib; 
 const {repeatSpaces} = lib; 
+const {repeatCharacters} = lib; 
 const {generateHollowLine} = lib;
 const {createAlternateLine} = lib;
-
-//---------Rectangle-------//
 
 const generateFilledRectangle = function(height, width) {
   return new Array(height).fill(width).map(repeatStars).join("\n");
@@ -14,7 +12,7 @@ const generateFilledRectangle = function(height, width) {
 
 const middlePartOfHollowRectangle = function(height, width) {
   let elementArray = new Array(height).fill(width);
-  return elementArray.map(generateHollowLine("*")).join("\n");
+  return elementArray.map(generateHollowLine("*","*")).join("\n");
 }
 
 const generateHollowRectangle = function(height, width) {
@@ -22,7 +20,8 @@ const generateHollowRectangle = function(height, width) {
   let line = repeatStars(width);
   let middlePart = "";
   if(height > 2) {
-    middlePart = delimiter + middlePartOfHollowRectangle(height-2, width-2); 
+    middlePart = delimiter;
+    middlePart += middlePartOfHollowRectangle(height-2, width-2); 
   }
   return line + middlePart + delimiter + line;
 }
@@ -39,11 +38,6 @@ const generateRectangle = function(rectangleProperties) {
   rectangleProperties['alternate'] = generateAlternatingRectangle(height, width);
   return rectangleProperties[type];
 }
-
-
-//--------------
-
-//---------Triangle-------//
 
 const generateLeftTriangle = function(height) {
   let leftTriangle = [];
@@ -69,111 +63,67 @@ const generateTriangle = function(triangleProperties) {
   return triangleProperties[type];
 }
 
-
-//------------
-
-//---------Diamond-------//
-
-/* Filled Diamond ------------- */
 const generateFilledDiamond = function(height) {
   let filledDiamond = [];
   for(let index = 1-height; index < height; index+=2) {
     let absolute = Math.abs(index); 
     let stars = repeatStars(height-absolute);  
-    filledDiamond.push(repeatSpaces(absolute/2) + stars);
+    let spaces = repeatSpaces(absolute/2);
+    filledDiamond.push(spaces + stars + spaces);
   }
   return filledDiamond.join("\n");
 }  
 
-/* Filled Diamonnd x--------------*/
-
-const line = function(height) {
-  return repeatSpaces(Math.ceil(height/2)) + repeatCharacters("*",1);
+const createLine = function(height) {
+  let spaces = repeatSpaces(Math.floor(height/2));
+  return spaces + repeatStars(1) + spaces;
 }
 
-/* Hollow Diamond ----------------*/ 
-
-const topLineOfHollow = function(height) {
- return line(height); 
-}
-
-const bottomLineOfHollow = function(height) {
- return line(height); 
-}
-
-const generateUpperPart = function(height) {
- let upperPart = "";
- let delimiter = "\n";
- let spacesRequired = Math.ceil(height/2);
-  for(let index = 1; index <= height-2; index+=2) {
-    spacesRequired--; 
-    upperPart += repeatSpaces( spacesRequired )+ "*"+repeatSpaces(index)+"*";
-    upperPart += delimiter;
+const middlePartOfHollow = function(height, firstChar, secondChar) {
+  let middlePart = [];
+  let numberOfSpaces = 1;
+   for(let index = 1; index < height; index++) {
+    let hollowLine = generateHollowLine(firstChar,secondChar);
+    let stars = hollowLine(numberOfSpaces);
+    let spaces = repeatSpaces(height-index);
+    numberOfSpaces += 2;
+    middlePart.push(spaces + stars + spaces); 
   }
-  return topLineOfHollow(height) + delimiter + upperPart;
-}  
+  return "\n"+middlePart.join("\n");
+}
 
-const generateLowerPart = function(height) {
-  let lowerPart = "";
-  let spacesRequired = 2;
-  let delimiter = "\n";
-  let bottomLine = repeatSpaces(Math.ceil(height/2))+repeatCharacters("*",1);
-  for(let index = height-4; index >=1; index-=2) {
-    lowerPart += repeatSpaces( spacesRequired )+ "*"+repeatSpaces(index)+"*";
-    lowerPart += delimiter;
-    spacesRequired++; 
-  }
-  return lowerPart + bottomLineOfHollow(height);
-}  
+const createMiddleLine = function(width) {
+  let delimiter = "";
+  if(width > 3) {delimiter = "\n";}
+  let middleLine = generateHollowLine("*", "*");
+  return delimiter+middleLine(width-2)+delimiter;
+}
 
 const generateHollowDiamond = function(height) {
-  return generateUpperPart(height) + generateLowerPart(height);
-}
-
-/* Hollow Diamond x----------------*/
-
-/* Angled Hollow Diamond ---------*/
-
-const upperLineOfAngled = function(height) {
- return line(height); 
-}
-
-const bottomLineOfAngled = function(height) {
- return line(height); 
-}
-
-const generateUpperAngledPart = function(height) {
-  let upperPart = "";
-  let delimiter = "\n";
-  let spacesRequired = Math.ceil(height/2);
-  for(let index = 1; index <= height-4; index+=2) {
-    spacesRequired--; 
-    upperPart += repeatSpaces( spacesRequired )+ "/"+repeatSpaces(index)+"\\";
-    upperPart += delimiter;
-  }
-  spacesRequired--;
-  upperPart += repeatSpaces( spacesRequired )+ "*"+repeatSpaces(height-2)+"*";
-  upperPart += delimiter;
-  return upperLineOfAngled(height) + delimiter + upperPart;
+  if(height <= 2) {return "*";}
+  let upperHalf = generateUpperHalf(height, "*", "*"); 
+  let middleLine = createMiddleLine(height);
+  let lowerHalf = generateLowerHalf(height, "*", "*");  
+  return upperHalf+middleLine+lowerHalf;
 }  
 
-const generateLowerAngledPart = function(height) {
-  let lowerPart = "";
-  let spacesRequired = 2;
-  let delimiter = "\n";
-  for(let index = height - 4; index >= 1; index -= 2) {
-    lowerPart += repeatSpaces( spacesRequired )+  "\\"+repeatSpaces(index)+"/";
-    lowerPart += delimiter;
-    spacesRequired++; 
-  }
-  return lowerPart + bottomLineOfAngled(height);
-}  
- 
+const generateUpperHalf = function(height, firstChar, secondChar) {
+  let middlePart = middlePartOfHollow(Math.floor(height/2),firstChar,secondChar);
+  return createLine(height)+middlePart;
+}
+
+const generateLowerHalf = function(height, firstChar, secondChar) {
+  let lowerPart = generateUpperHalf(height,firstChar,secondChar).split("\n");
+  return lowerPart.reverse().join("\n");
+}
+
 const generateAngledDiamond = function(height) {
-  return generateUpperAngledPart(height) + generateLowerAngledPart(height);
+  if(height <= 2) {return "*";}
+  let upperHalf = generateUpperHalf(height, "/", "\\"); 
+  let middleLine = createMiddleLine(height); 
+  let lowerHalf = generateLowerHalf(height, "\\", "/");  
+  return upperHalf+middleLine+lowerHalf;
 }
-
-/* Angled Diamond x---------------*/
 
 const generateDiamond = function(diamondProperties) {
   let {type, height} = diamondProperties;
@@ -182,10 +132,6 @@ const generateDiamond = function(diamondProperties) {
   diamondProperties['hollow'] = generateHollowDiamond(height);
   return diamondProperties[type];
 }
-
-//--------------
-
-//============Exports=========//
 
 exports.generateRectangle = generateRectangle;
 exports.generateTriangle = generateTriangle;
