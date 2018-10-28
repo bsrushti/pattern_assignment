@@ -117,23 +117,23 @@ assert.equal(generateTriangle(createTriangleObject([,,"left",9])),left_9);
 /* Diamond pattern tests */
 
 let filled_5 = '';
-filled_5 += '   *'+'\n';
-filled_5 += '  ***'+'\n';
-filled_5 += ' *****'+'\n';
-filled_5 += '  ***'+'\n';
-filled_5 += '   *';
+filled_5 += '  *'+'\n';
+filled_5 += ' ***'+'\n';
+filled_5 += '*****'+'\n';
+filled_5 += ' ***'+'\n';
+filled_5 += '  *';
 assert.equal(generateDiamond(createDiamondObject([,,"filled",5])),filled_5);
 
 let filled_9 = '';
-filled_9 += '     *'+'\n';
-filled_9 += '    ***'+'\n';
-filled_9 += '   *****'+'\n';
-filled_9 += '  *******'+'\n';
-filled_9 += ' *********'+'\n';
-filled_9 += '  *******'+'\n';
-filled_9 += '   *****'+'\n';
-filled_9 += '    ***'+'\n';
-filled_9 += '     *';
+filled_9 += '    *'+'\n';
+filled_9 += '   ***'+'\n';
+filled_9 += '  *****'+'\n';
+filled_9 += ' *******'+'\n';
+filled_9 += '*********'+'\n';
+filled_9 += ' *******'+'\n';
+filled_9 += '  *****'+'\n';
+filled_9 += '   ***'+'\n';
+filled_9 += '    *';
 assert.equal(generateDiamond(createDiamondObject([,,"filled",9])),filled_9);
 
 let hollow_5 = '';

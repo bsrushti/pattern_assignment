@@ -75,36 +75,15 @@ const generateTriangle = function(triangleProperties) {
 //---------Diamond-------//
 
 /* Filled Diamond ------------- */
-const generateUpperFilledPart = function(height) {
- let upperPart = "";
- let delimiter = "\n";
- let spacesRequired = Math.ceil(height/2);
-  for(let index = 1; index <= height; index+=2) {
-    upperPart += repeatSpaces( spacesRequired )+ repeatCharacters("*",index); 
-    upperPart += delimiter;
-    spacesRequired--; 
-  }
-  return upperPart;
-}  
-
-const generateLowerFilledPart = function(height) {
-  let lowerPart = "";
-  let spacesRequired = 2;
-  let delimiter = "";
-  for( let index = height-2; index >= 1; index -= 2 ) {
-    lowerPart += delimiter;
-    lowerPart += repeatSpaces( spacesRequired )+ repeatCharacters("*",index);
-    spacesRequired++; 
-    delimiter = "\n";
-  }
-  return lowerPart;
-}  
-
 const generateFilledDiamond = function(height) {
-  let upperPart = generateUpperFilledPart(height);
-  let lowerPart = generateLowerFilledPart(height);
-  return upperPart + lowerPart; 
-}
+  let filledDiamond = [];
+  for(let index = 1-height; index < height; index+=2) {
+    let absolute = Math.abs(index); 
+    let stars = repeatStars(height-absolute);  
+    filledDiamond.push(repeatSpaces(absolute/2) + stars);
+  }
+  return filledDiamond.join("\n");
+}  
 
 /* Filled Diamonnd x--------------*/
 
