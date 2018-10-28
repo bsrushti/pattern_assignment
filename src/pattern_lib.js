@@ -54,16 +54,12 @@ const generateLeftTriangle = function(height) {
 }
 
 const generateRightTriangle = function(height) {
-  let lengthOfLine = 0;
-  let delimiter = "";
-  let rightTriangle = "";
-  for(let rowIndex = height; rowIndex >=1; rowIndex--) {
-    let spaces = repeatSpaces(rowIndex);
-    let line = repeatCharacters("*",++lengthOfLine); 
-    rightTriangle += delimiter + spaces + line; 
-    delimiter = "\n";
+  let rightTriangle = generateLeftTriangle(height).split("\n");
+  for(let rowIndex = 1; rowIndex <= height; rowIndex++) {
+    let triangleRow = rightTriangle.shift().split("").reverse().join("");
+    rightTriangle.push(triangleRow);
   }
-  return rightTriangle;
+  return rightTriangle.join("\n");
 }
 
 const generateTriangle = function(triangleProperties) {
