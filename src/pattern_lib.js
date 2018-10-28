@@ -79,7 +79,7 @@ const createLine = function(height) {
   return spaces + repeatStars(1) + spaces;
 }
 
-const middlePartOfHollow = function(height, firstChar, secondChar) {
+const middlePartOfHollowDiamond = function(height, firstChar, secondChar) {
   let middlePart = [];
   let numberOfSpaces = 1;
    for(let index = 1; index < height; index++) {
@@ -108,7 +108,8 @@ const generateHollowDiamond = function(height) {
 }  
 
 const generateUpperHalf = function(height, firstChar, secondChar) {
-  let middlePart = middlePartOfHollow(Math.floor(height/2),firstChar,secondChar);
+  let length = Math.floor(height/2);
+  let middlePart = middlePartOfHollowDiamond(length,firstChar,secondChar);
   return createLine(height)+middlePart;
 }
 
