@@ -56,6 +56,7 @@ module.exports={
   repeatStars,
   repeatSpaces,
   repeatHyphen,
+  createObject,
   createDiamondObject,
   createTriangleObject,
   createRectangleObject,

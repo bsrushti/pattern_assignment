@@ -4,6 +4,9 @@ const {repeatCharacters} = lib;
 const {repeatStars} = lib;
 const {repeatHyphen} = lib;
 const {repeatSpaces} = lib;
+const {createObject} = lib;
+const {generateHollowLine} = lib;
+const {createAlternateLine} = lib;
 
 //========repeatCharacters=======
 
@@ -34,3 +37,25 @@ assert.equal(repeatHyphen(4),"----");
 assert.equal(repeatHyphen(8),"--------");
 assert.equal(repeatHyphen(12),"------------");
 
+//========createObject========
+
+assert.deepEqual(createObject([,,"filled",2,2]),{type:"filled", height:2, width: 2});
+assert.deepEqual(createObject([,,"hollow",4,5]),{type:"hollow",height:4, width: 5});
+assert.deepEqual(createObject([,,"alternate",6,6]),{type:"alternate", height:6, width:6});
+assert.deepEqual(createObject([,,"hollow",5,7]),{type:"hollow", height:5, width:7});
+
+//========generateHollowLine========
+
+let hollowLine = generateHollowLine("*","*");
+assert.equal(hollowLine(2),"*  *");
+assert.equal(hollowLine(4),"*    *");
+assert.equal(hollowLine(8),"*        *");
+assert.equal(hollowLine(12),"*            *");
+
+//========createAlternateLine========
+
+let line = createAlternateLine();
+assert.equal(line(2),"**");
+assert.equal(line(4),"----");
+assert.equal(line(8),"********");
+assert.equal(line(12),"------------");
