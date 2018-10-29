@@ -70,7 +70,7 @@ const generateFilledDiamond = function(height) {
   return filledDiamond.join("\n");
 }  
 
-const createLine = function(height) {
+const createJustifiedLineWithOneStar = function(height) {
   let spaces = repeatSpaces(Math.floor(height/2));
   return spaces + repeatStars(1) + spaces;
 }
@@ -78,7 +78,7 @@ const createLine = function(height) {
 const middlePartOfHollowDiamond = function(height, firstChar, secondChar) {
   let middlePart = [];
   let length = 3;
-   for(let index = 1; index < height; index++) {
+  for(let index = 1; index < height; index++) {
     let hollowLine = generateHollowLine(firstChar,secondChar);
     let stars = hollowLine(length);
     let spaces = repeatSpaces(height-index);
@@ -104,9 +104,10 @@ const generateHollowDiamond = function(height) {
 }  
 
 const generateUpperHalf = function(height, firstChar, secondChar) {
+  let topLine = createJustifiedLineWithOneStar(height);
   let length = Math.floor(height/2);
   let middlePart = middlePartOfHollowDiamond(length,firstChar,secondChar);
-  return createLine(height)+middlePart;
+  return topLine+middlePart;
 }
 
 const generateLowerHalf = function(height, firstChar, secondChar) {
