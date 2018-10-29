@@ -52,9 +52,9 @@ const createAlternateLine = function() {
 };
 
 const middlePartOfHollowRectangle = function(height, width) {
-  let elementArray = new Array(height-2).fill(width);
+  let elementArray = new Array(height).fill(width);
   return elementArray.map(generateHollowLine("*","*")).join("\n");
-}
+};
 
 module.exports={
   repeatCharacters,
