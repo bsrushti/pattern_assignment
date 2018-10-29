@@ -8,6 +8,7 @@ const {createObject} = lib;
 const {generateHollowLine} = lib;
 const {createAlternateLine} = lib;
 const {middlePartOfHollowRectangle} = lib;
+const {createJustifiedLineWithOneStar} = lib;
 
 //========repeatCharacters=======
 
@@ -67,3 +68,10 @@ assert.equal(middlePartOfHollowRectangle(2,2),"**\n**");
 assert.equal(middlePartOfHollowRectangle(4,2),"**\n**\n**\n**");
 assert.equal(middlePartOfHollowRectangle(2,3),"* *\n* *");
 assert.equal(middlePartOfHollowRectangle(3,5),"*   *\n*   *\n*   *");
+
+//========createJustifiedLineWithOneStar========
+
+assert.equal(createJustifiedLineWithOneStar(3)," * ");
+assert.equal(createJustifiedLineWithOneStar(5),"  *  ");
+assert.equal(createJustifiedLineWithOneStar(7),"   *   ");
+assert.equal(createJustifiedLineWithOneStar(9),"    *    ");

@@ -56,6 +56,11 @@ const middlePartOfHollowRectangle = function(height, width) {
   return elementArray.map(generateHollowLine("*","*")).join("\n");
 };
 
+const createJustifiedLineWithOneStar = function(height) {
+  let spaces = repeatSpaces(Math.floor(height/2));
+  return spaces + repeatStars(1) + spaces;
+};
+
 module.exports={
   repeatCharacters,
   repeatStars,
@@ -67,6 +72,7 @@ module.exports={
   createRectangleObject,
   generateHollowLine,
   createAlternateLine,
-  middlePartOfHollowRectangle
+  middlePartOfHollowRectangle,
+  createJustifiedLineWithOneStar
 };
 

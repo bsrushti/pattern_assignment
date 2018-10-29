@@ -6,6 +6,7 @@ const {repeatCharacters} = lib;
 const {generateHollowLine} = lib;
 const {createAlternateLine} = lib;
 const {middlePartOfHollowRectangle} = lib;
+const {createJustifiedLineWithOneStar} = lib;
 
 const generateFilledRectangle = function(height, width) {
   return new Array(height).fill(width).map(repeatStars).join("\n");
@@ -69,11 +70,6 @@ const generateFilledDiamond = function(height) {
   }
   return filledDiamond.join("\n");
 }  
-
-const createJustifiedLineWithOneStar = function(height) {
-  let spaces = repeatSpaces(Math.floor(height/2));
-  return spaces + repeatStars(1) + spaces;
-}
 
 const middlePartOfHollowDiamond = function(height, firstChar, secondChar) {
   let middlePart = [];
