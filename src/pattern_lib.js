@@ -17,7 +17,7 @@ const generateHollowRectangle = function(height, width) {
   let middlePart = "";
   if(height > 2) {
     middlePart = delimiter;
-    middlePart += middlePartOfHollowRectangle(height, width); 
+    middlePart += middlePartOfHollowRectangle(height-2, width); 
   }
   return line + middlePart + delimiter + line;
 }

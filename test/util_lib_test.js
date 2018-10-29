@@ -60,3 +60,10 @@ assert.equal(line(2),"**");
 assert.equal(line(4),"----");
 assert.equal(line(8),"********");
 assert.equal(line(12),"------------");
+
+//========middlePartOfHollowRectangle========
+
+assert.equal(middlePartOfHollowRectangle(2,2),"**\n**");
+assert.equal(middlePartOfHollowRectangle(4,2),"**\n**\n**\n**");
+assert.equal(middlePartOfHollowRectangle(2,3),"* *\n* *");
+assert.equal(middlePartOfHollowRectangle(3,5),"*   *\n*   *\n*   *");
