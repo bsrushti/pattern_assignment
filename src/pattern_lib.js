@@ -5,14 +5,10 @@ const {repeatSpaces} = lib;
 const {repeatCharacters} = lib; 
 const {generateHollowLine} = lib;
 const {createAlternateLine} = lib;
+const {middlePartOfHollowRectangle} = lib;
 
 const generateFilledRectangle = function(height, width) {
   return new Array(height).fill(width).map(repeatStars).join("\n");
-}
-
-const middlePartOfHollowRectangle = function(height, width) {
-  let elementArray = new Array(height-2).fill(width);
-  return elementArray.map(generateHollowLine("*","*")).join("\n");
 }
 
 const generateHollowRectangle = function(height, width) {

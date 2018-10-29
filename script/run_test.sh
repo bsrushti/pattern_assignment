@@ -1,4 +1,5 @@
 #! /bin/bash
+set -xe
 
 if [ $# -eq 0 ]; then
   echo "Usage:"
