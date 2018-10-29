@@ -36,7 +36,7 @@ const repeatSpaces = function(numberOfTimes) {
 
 const generateHollowLine = function(firstChar, secondChar) {
   return function(length) {
-    return firstChar+repeatSpaces(length)+secondChar;
+    return firstChar+repeatSpaces(length-2)+secondChar;
   }
 }
 
@@ -61,6 +61,6 @@ module.exports={
   createTriangleObject,
   createRectangleObject,
   generateHollowLine,
-  createAlternateLine
+  createAlternateLine,
 };
 

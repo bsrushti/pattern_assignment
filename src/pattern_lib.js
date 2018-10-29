@@ -11,7 +11,7 @@ const generateFilledRectangle = function(height, width) {
 }
 
 const middlePartOfHollowRectangle = function(height, width) {
-  let elementArray = new Array(height).fill(width);
+  let elementArray = new Array(height-2).fill(width);
   return elementArray.map(generateHollowLine("*","*")).join("\n");
 }
 
@@ -21,7 +21,7 @@ const generateHollowRectangle = function(height, width) {
   let middlePart = "";
   if(height > 2) {
     middlePart = delimiter;
-    middlePart += middlePartOfHollowRectangle(height-2, width-2); 
+    middlePart += middlePartOfHollowRectangle(height, width); 
   }
   return line + middlePart + delimiter + line;
 }
@@ -81,12 +81,12 @@ const createLine = function(height) {
 
 const middlePartOfHollowDiamond = function(height, firstChar, secondChar) {
   let middlePart = [];
-  let numberOfSpaces = 1;
+  let length = 3;
    for(let index = 1; index < height; index++) {
     let hollowLine = generateHollowLine(firstChar,secondChar);
-    let stars = hollowLine(numberOfSpaces);
+    let stars = hollowLine(length);
     let spaces = repeatSpaces(height-index);
-    numberOfSpaces += 2;
+    length += 2;
     middlePart.push(spaces + stars + spaces); 
   }
   return "\n"+middlePart.join("\n");
@@ -96,7 +96,7 @@ const createMiddleLine = function(width) {
   let delimiter = "";
   if(width > 3) {delimiter = "\n";}
   let middleLine = generateHollowLine("*", "*");
-  return delimiter+middleLine(width-2)+delimiter;
+  return delimiter+middleLine(width)+delimiter;
 }
 
 const generateHollowDiamond = function(height) {

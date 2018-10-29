@@ -7,6 +7,7 @@ const {repeatSpaces} = lib;
 const {createObject} = lib;
 const {generateHollowLine} = lib;
 const {createAlternateLine} = lib;
+const {middlePartOfHollowRectangle} = lib;
 
 //========repeatCharacters=======
 
@@ -47,10 +48,10 @@ assert.deepEqual(createObject([,,"hollow",5,7]),{type:"hollow", height:5, width:
 //========generateHollowLine========
 
 let hollowLine = generateHollowLine("*","*");
-assert.equal(hollowLine(2),"*  *");
-assert.equal(hollowLine(4),"*    *");
-assert.equal(hollowLine(8),"*        *");
-assert.equal(hollowLine(12),"*            *");
+assert.equal(hollowLine(2),"**");
+assert.equal(hollowLine(4),"*  *");
+assert.equal(hollowLine(8),"*      *");
+assert.equal(hollowLine(12),"*          *");
 
 //========createAlternateLine========
 
