@@ -9,6 +9,7 @@ const {generateHollowLine} = lib;
 const {createAlternateLine} = lib;
 const {middlePartOfHollowRectangle} = lib;
 const {createJustifiedLineWithOneStar} = lib;
+const {middlePartOfUpperHalfDiamond} = lib;
 
 //========repeatCharacters=======
 
@@ -75,3 +76,9 @@ assert.equal(createJustifiedLineWithOneStar(3)," * ");
 assert.equal(createJustifiedLineWithOneStar(5),"  *  ");
 assert.equal(createJustifiedLineWithOneStar(7),"   *   ");
 assert.equal(createJustifiedLineWithOneStar(9),"    *    ");
+
+//========middlePartOfUpperHalfDiamond========
+
+assert.equal(middlePartOfUpperHalfDiamond(3,"*","*"),"\n");
+assert.equal(middlePartOfUpperHalfDiamond(5,"*","*"),"\n * * ");
+assert.equal(middlePartOfUpperHalfDiamond(7,"*","*"),"\n  * *  \n *   * ");

@@ -61,6 +61,20 @@ const createJustifiedLineWithOneStar = function(height) {
   return spaces + repeatStars(1) + spaces;
 };
 
+const middlePartOfUpperHalfDiamond = function(height, firstChar, secondChar) {
+  let middlePart = [];
+  let length = 3;
+  height = Math.floor(height/2)-1;
+  for(let index = 1; index <= height; index++) {
+    let hollowLine = generateHollowLine(firstChar,secondChar);
+    let stars = hollowLine(length);
+    let spaces = repeatSpaces(height+1-index);
+    length += 2;
+    middlePart.push(spaces + stars + spaces); 
+  }
+  return "\n"+middlePart.join("\n");
+}
+
 module.exports={
   repeatCharacters,
   repeatStars,
@@ -73,6 +87,7 @@ module.exports={
   generateHollowLine,
   createAlternateLine,
   middlePartOfHollowRectangle,
-  createJustifiedLineWithOneStar
+  createJustifiedLineWithOneStar,
+  middlePartOfUpperHalfDiamond
 };
 
