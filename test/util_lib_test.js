@@ -98,8 +98,15 @@ assert.equal(generateUpperHalf(1,"*","*"),"*\n");
 assert.equal(generateUpperHalf(3,"*","*")," * \n");
 assert.equal(generateUpperHalf(7,"*","*"),"   *   \n  * *  \n *   * ");
 
+assert.equal(generateUpperHalf(1,"/","\\"),"*\n");
+assert.equal(generateUpperHalf(3,"/","\\")," * \n");
+assert.equal(generateUpperHalf(7,"/","\\"),"   *   \n  / \\  \n /   \\ ");
 //========generateLowerHalf========
 
 assert.equal(generateLowerHalf(1,"*","*"),"\n*");
 assert.equal(generateLowerHalf(2,"*","*"),"\n * ");
 assert.equal(generateLowerHalf(5,"*","*")," * * \n  *  ");
+
+assert.equal(generateLowerHalf(1,"\\","/"),"\n*");
+assert.equal(generateLowerHalf(2,"\\","/"),"\n * ");
+assert.equal(generateLowerHalf(5,"\\","/")," \\ / \n  *  ");
