@@ -43,16 +43,16 @@ const generateLeftTriangle = function(height) {
   for(let rowIndex = 1; rowIndex <= height; rowIndex++) {
     leftTriangle.push(repeatStars(rowIndex)+repeatSpaces(height-rowIndex));
   }
-  return leftTriangle.join("\n");
+  return leftTriangle;
 }
 
 const generateRightTriangle = function(height) {
-  let rightTriangle = generateLeftTriangle(height).split("\n");
+  let rightTriangle = generateLeftTriangle(height);
   for(let rowIndex = 1; rowIndex <= height; rowIndex++) {
     let triangleRow = rightTriangle.shift().split("").reverse().join("");
     rightTriangle.push(triangleRow);
   }
-  return rightTriangle.join("\n");
+  return rightTriangle;
 }
 
 const generateTriangle = function(triangleProperties) {

@@ -69,43 +69,39 @@ assert.deepEqual(generateRectangle(createRectangleObject([,,"hollow",7,20])),hol
 
 /* Triangle pattern tests */
 
-let right_4 = '';
-right_4 += '   *' + '\n';
-right_4 += '  **' + '\n';
-right_4 += ' ***' + '\n';
-right_4 += '****';
-assert.equal(generateTriangle(createTriangleObject([,,"right",4])),right_4);
+let right_4 =[ '   *',
+               '  **',
+               ' ***',
+               '****' ];
+assert.deepEqual(generateTriangle(createTriangleObject([,,"right",4])),right_4);
 
-let right_7 = '';
-right_7 += '      *'+'\n';
-right_7 += '     **'+'\n';
-right_7 += '    ***'+'\n';
-right_7 += '   ****'+'\n';
-right_7 += '  *****'+'\n';
-right_7 += ' ******'+'\n';
-right_7 += '*******';
-assert.equal(generateTriangle(createTriangleObject([,,"right",7])),right_7);
+let right_7 =['      *',
+              '     **',
+              '    ***',
+              '   ****',
+              '  *****',
+              ' ******',
+              '*******' ];
+assert.deepEqual(generateTriangle(createTriangleObject([,,"right",7])),right_7);
 
-let left_6 = '';
-left_6 += '*     '+'\n';
-left_6 += '**    '+'\n';
-left_6 += '***   '+'\n';
-left_6 += '****  '+'\n';
-left_6 += '***** '+'\n';
-left_6 += '******';
-assert.equal(generateTriangle(createTriangleObject([,,"left",6])),left_6);
+let left_6 =['*     ',
+             '**    ',
+             '***   ',
+             '****  ',
+             '***** ',
+             '******'];
+assert.deepEqual(generateTriangle(createTriangleObject([,,"left",6])),left_6);
 
-let left_9 = '';
-left_9 += '*        '+'\n';
-left_9 += '**       '+'\n';
-left_9 += '***      '+'\n';
-left_9 += '****     '+'\n';
-left_9 += '*****    '+'\n';
-left_9 += '******   '+'\n';
-left_9 += '*******  '+'\n';
-left_9 += '******** '+'\n';
-left_9 += '*********';
-assert.equal(generateTriangle(createTriangleObject([,,"left",9])),left_9);
+let left_9 =[ '*        ',
+              '**       ',
+              '***      ',
+              '****     ',
+              '*****    ',
+              '******   ',
+              '*******  ',
+              '******** ',
+              '*********' ];
+assert.deepEqual(generateTriangle(createTriangleObject([,,"left",9])),left_9);
 
 /* Diamond pattern tests */
 
