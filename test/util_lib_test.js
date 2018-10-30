@@ -10,6 +10,7 @@ const {createAlternateLine} = lib;
 const {middlePartOfHollowRectangle} = lib;
 const {createJustifiedLineWithOneStar} = lib;
 const {middlePartOfUpperHalfDiamond} = lib;
+const {createMiddleLine} = lib;
 
 //========repeatCharacters=======
 
@@ -69,7 +70,6 @@ assert.equal(middlePartOfHollowRectangle(2,2),"**\n**");
 assert.equal(middlePartOfHollowRectangle(4,2),"**\n**\n**\n**");
 assert.equal(middlePartOfHollowRectangle(2,3),"* *\n* *");
 assert.equal(middlePartOfHollowRectangle(3,5),"*   *\n*   *\n*   *");
-<<<<<<< HEAD
 
 //========createJustifiedLineWithOneStar========
 
@@ -83,5 +83,9 @@ assert.equal(createJustifiedLineWithOneStar(9),"    *    ");
 assert.equal(middlePartOfUpperHalfDiamond(3,"*","*"),"\n");
 assert.equal(middlePartOfUpperHalfDiamond(5,"*","*"),"\n * * ");
 assert.equal(middlePartOfUpperHalfDiamond(7,"*","*"),"\n  * *  \n *   * ");
-=======
->>>>>>> e989b244a7d37edb17d5b0943b2c9f3ce1d72317
+
+//========createMiddleLine========
+
+assert.equal(createMiddleLine(5,"*","*"),"\n*   *\n");
+assert.equal(createMiddleLine(7,"*","*"),"\n*     *\n");
+assert.equal(createMiddleLine(9,"*","*"),"\n*       *\n");

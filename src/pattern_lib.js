@@ -8,6 +8,7 @@ const {createAlternateLine} = lib;
 const {middlePartOfHollowRectangle} = lib;
 const {createJustifiedLineWithOneStar} = lib;
 const {middlePartOfUpperHalfDiamond} = lib;
+const {createMiddleLine} = lib;
 
 const generateFilledRectangle = function(height, width) {
   return new Array(height).fill(width).map(repeatStars).join("\n");
@@ -71,13 +72,6 @@ const generateFilledDiamond = function(height) {
   }
   return filledDiamond.join("\n");
 }  
-
-const createMiddleLine = function(width) {
-  let delimiter = "";
-  if(width > 3) {delimiter = "\n";}
-  let middleLine = generateHollowLine("*", "*");
-  return delimiter+middleLine(width)+delimiter;
-}
 
 const generateHollowDiamond = function(height) {
   if(height <= 2) {return "*";}
