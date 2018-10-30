@@ -55,6 +55,7 @@ const middlePartOfHollowRectangle = function(height, width) {
   let elementArray = new Array(height).fill(width);
   return elementArray.map(generateHollowLine("*","*")).join("\n");
 };
+<<<<<<< HEAD
 
 const createJustifiedLineWithOneStar = function(height) {
   let spaces = repeatSpaces(Math.floor(height/2));
@@ -74,6 +75,8 @@ const middlePartOfUpperHalfDiamond = function(height, firstChar, secondChar) {
   }
   return "\n"+middlePart.join("\n");
 }
+=======
+>>>>>>> e989b244a7d37edb17d5b0943b2c9f3ce1d72317
 
 module.exports={
   repeatCharacters,
