@@ -70,7 +70,7 @@ const generateFilledDiamond = function(height) {
     let spaces = repeatSpaces(absolute/2);
     filledDiamond.push(spaces + stars + spaces);
   }
-  return filledDiamond.join("\n");
+  return filledDiamond;
 }  
 
 const generateHollowDiamond = function(height) {
