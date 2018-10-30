@@ -13,7 +13,7 @@ const {generateUpperHalf} = lib;
 const {generateLowerHalf} = lib;
 
 const generateFilledRectangle = function(height, width) {
-  return new Array(height).fill(width).map(repeatStars).join("\n");
+  return new Array(height).fill(width).map(repeatStars);
 }
 
 const generateHollowRectangle = function(height, width) {

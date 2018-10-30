@@ -11,22 +11,22 @@ const { createRectangleObject } = utilLib;
 /* Rectangle pattern tests */
 
 let filled_4_5 = '';
-filled_4_5 += '****'+'\n'
-filled_4_5 += '****'+'\n';
-filled_4_5 += '****'+'\n';
-filled_4_5 += '****'+'\n';
-filled_4_5 += '****'; 
+filled_4_5 += ['****', 
+               '****',
+               '****',
+               '****',
+               '****']; 
 assert.equal(generateRectangle(createRectangleObject([,,"filled",5,4])),filled_4_5);
 
 let filled_5_8 = '';
-filled_5_8 += '*****'+'\n';
-filled_5_8 += '*****'+'\n';
-filled_5_8 += '*****'+'\n';
-filled_5_8 += '*****'+'\n';
-filled_5_8 += '*****'+'\n';
-filled_5_8 += '*****'+'\n';
-filled_5_8 += '*****'+'\n';
-filled_5_8 += '*****'; 
+filled_5_8 += ['*****', 
+               '*****',
+               '*****',
+               '*****',
+               '*****',
+               '*****',
+               '*****',
+               '*****']; 
 assert.equal(generateRectangle(createRectangleObject([,,"filled",8,5])),filled_5_8);
 
 let alternate_2_2 = '';
