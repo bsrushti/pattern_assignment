@@ -75,18 +75,22 @@ const generateFilledDiamond = function(height) {
 
 const generateHollowDiamond = function(height) {
   if(height <= 2) {return "*";}
+  let hollowDiamond = [];
   let upperHalf = generateUpperHalf(height, "*", "*"); 
   let middleLine = createMiddleLine(height);
   let lowerHalf = generateLowerHalf(height, "*", "*");  
-  return upperHalf+middleLine+lowerHalf;
+  hollowDiamond = upperHalf.concat([middleLine],lowerHalf);
+  return hollowDiamond; 
 }  
 
 const generateAngledDiamond = function(height) {
   if(height <= 2) {return "*";}
+  let angledDiamond = [];
   let upperHalf = generateUpperHalf(height, "/", "\\"); 
   let middleLine = createMiddleLine(height); 
   let lowerHalf = generateLowerHalf(height, "\\", "/");  
-  return upperHalf+middleLine+lowerHalf;
+  angledDiamond = upperHalf.concat([middleLine],lowerHalf);
+  return angledDiamond;
 }
 
 const generateDiamond = function(diamondProperties) {

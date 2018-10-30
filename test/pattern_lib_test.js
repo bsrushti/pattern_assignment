@@ -123,48 +123,44 @@ let filled_9 =[ '    *    ',
                 '    *    ' ];
 assert.deepEqual(generateDiamond(createDiamondObject([,,"filled",9])),filled_9);
 
-let hollow_5 = '';
-hollow_5 += '  *  '+'\n';
-hollow_5 += ' * * '+'\n';
-hollow_5 += '*   *'+'\n';
-hollow_5 += ' * * '+'\n';
-hollow_5 += '  *  ';
-assert.equal(generateDiamond(createDiamondObject([,,"hollow",5])),hollow_5);
+let hollow_5 =['  *  ',
+               ' * * ',
+               '*   *',
+               ' * * ',
+               '  *  '];
+assert.deepEqual(generateDiamond(createDiamondObject([,,"hollow",5])),hollow_5);
 
-let hollow_9 = '';
-hollow_9 += '    *    '+'\n';
-hollow_9 += '   * *   '+'\n';
-hollow_9 += '  *   *  '+'\n';
-hollow_9 += ' *     * '+'\n';
-hollow_9 += '*       *'+'\n';
-hollow_9 += ' *     * '+'\n';
-hollow_9 += '  *   *  '+'\n';
-hollow_9 += '   * *   '+'\n';
-hollow_9 += '    *    ';
-assert.equal(generateDiamond(createDiamondObject([,,"hollow",9])),hollow_9);
+let hollow_9 =['    *    ',
+               '   * *   ',
+               '  *   *  ',
+               ' *     * ',
+               '*       *',
+               ' *     * ',
+               '  *   *  ',
+               '   * *   ',
+               '    *    '];
+assert.deepEqual(generateDiamond(createDiamondObject([,,"hollow",9])),hollow_9);
 
-let angled_7 = '';
-angled_7 += '   *   '+'\n'; 
-angled_7 += '  / \\  '+'\n';
-angled_7 += ' /   \\ '+'\n';
-angled_7 += '*     *'+'\n';
-angled_7 += ' \\   / '+'\n';
-angled_7 += '  \\ /  '+'\n';
-angled_7 += '   *   ';
-assert.equal(generateDiamond(createDiamondObject([,,"angled",7])),angled_7);
+let angled_7 =['   *   ', 
+               '  / \\  ',
+               ' /   \\ ',
+               '*     *',
+               ' \\   / ',
+               '  \\ /  ',
+               '   *   ']
+assert.deepEqual(generateDiamond(createDiamondObject([,,"angled",7])),angled_7);
 
-let angled_13 = '';
-angled_13 += '      *      '+'\n'; 
-angled_13 += '     / \\     '+'\n';
-angled_13 += '    /   \\    '+'\n';
-angled_13 += '   /     \\   '+'\n';
-angled_13 += '  /       \\  '+'\n';
-angled_13 += ' /         \\ '+'\n';
-angled_13 += '*           *'+'\n';
-angled_13 += ' \\         / '+'\n';
-angled_13 += '  \\       /  '+'\n';
-angled_13 += '   \\     /   '+'\n';
-angled_13 += '    \\   /    '+'\n';
-angled_13 += '     \\ /     '+'\n';
-angled_13 += '      *      ';
-assert.equal(generateDiamond(createDiamondObject([,,"angled",13])),angled_13);
+let angled_13 =[ '      *      ', 
+                 '     / \\     ',
+                 '    /   \\    ',
+                 '   /     \\   ',
+                 '  /       \\  ',
+                 ' /         \\ ',
+                 '*           *',
+                 ' \\         / ',
+                 '  \\       /  ',
+                 '   \\     /   ',
+                 '    \\   /    ',
+                 '     \\ /     ',
+                 '      *      ' ];
+assert.deepEqual(generateDiamond(createDiamondObject([,,"angled",13])),angled_13);

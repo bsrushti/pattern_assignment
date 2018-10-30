@@ -82,31 +82,31 @@ assert.equal(createJustifiedLineWithOneStar(9),"    *    ");
 
 //========middlePartOfUpperHalfDiamond========
 
-assert.equal(middlePartOfUpperHalfDiamond(3,"*","*"),"\n");
-assert.equal(middlePartOfUpperHalfDiamond(5,"*","*"),"\n * * ");
-assert.equal(middlePartOfUpperHalfDiamond(7,"*","*"),"\n  * *  \n *   * ");
+assert.deepEqual(middlePartOfUpperHalfDiamond(3,"*","*"),[]);
+assert.deepEqual(middlePartOfUpperHalfDiamond(5,"*","*"),[' * * ']);
+assert.deepEqual(middlePartOfUpperHalfDiamond(7,"*","*"),['  * *  ', ' *   * ' ]);
 
 //========createMiddleLine========
 
-assert.equal(createMiddleLine(5,"*","*"),"\n*   *\n");
-assert.equal(createMiddleLine(7,"*","*"),"\n*     *\n");
-assert.equal(createMiddleLine(9,"*","*"),"\n*       *\n");
+assert.equal(createMiddleLine(5,"*","*"),"*   *");
+assert.equal(createMiddleLine(7,"*","*"),"*     *");
+assert.equal(createMiddleLine(9,"*","*"),"*       *");
 
 //========generateUpperHalf========
 
-assert.equal(generateUpperHalf(1,"*","*"),"*\n");
-assert.equal(generateUpperHalf(3,"*","*")," * \n");
-assert.equal(generateUpperHalf(7,"*","*"),"   *   \n  * *  \n *   * ");
+assert.deepEqual(generateUpperHalf(1,"*","*"),[ '*' ]);
+assert.deepEqual(generateUpperHalf(3,"*","*"),[ ' * ']);
+assert.deepEqual(generateUpperHalf(7,"*","*"),['   *   ','  * *  ',' *   * ']);
 
-assert.equal(generateUpperHalf(1,"/","\\"),"*\n");
-assert.equal(generateUpperHalf(3,"/","\\")," * \n");
-assert.equal(generateUpperHalf(7,"/","\\"),"   *   \n  / \\  \n /   \\ ");
+assert.deepEqual(generateUpperHalf(1,"/","\\"),['*']);
+assert.deepEqual(generateUpperHalf(3,"/","\\"),[ ' * ' ]);
+assert.deepEqual(generateUpperHalf(7,"/","\\"),['   *   ','  / \\  ',' /   \\ ']);
 //========generateLowerHalf========
 
-assert.equal(generateLowerHalf(1,"*","*"),"\n*");
-assert.equal(generateLowerHalf(2,"*","*"),"\n * ");
-assert.equal(generateLowerHalf(5,"*","*")," * * \n  *  ");
+assert.deepEqual(generateLowerHalf(1,"*","*"),['*']);
+assert.deepEqual(generateLowerHalf(2,"*","*"),[' * ']);
+assert.deepEqual(generateLowerHalf(5,"*","*"),[' * * ','  *  ']);
 
-assert.equal(generateLowerHalf(1,"\\","/"),"\n*");
-assert.equal(generateLowerHalf(2,"\\","/"),"\n * ");
-assert.equal(generateLowerHalf(5,"\\","/")," \\ / \n  *  ");
+assert.deepEqual(generateLowerHalf(1,"\\","/"),['*']);
+assert.deepEqual(generateLowerHalf(2,"\\","/"),[' * ']);
+assert.deepEqual(generateLowerHalf(5,"\\","/"),[' \\ / ','  *  ']);

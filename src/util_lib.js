@@ -72,25 +72,25 @@ const middlePartOfUpperHalfDiamond = function(height, firstChar, secondChar) {
     length += 2;
     middlePart.push(spaces + stars + spaces); 
   }
-  return "\n"+middlePart.join("\n");
+  return middlePart;
 }
 
 const createMiddleLine = function(width) {
-  let delimiter = "";
-  if(width > 3) {delimiter = "\n";}
   let middleLine = generateHollowLine("*", "*");
-  return delimiter+middleLine(width)+delimiter;
+  return middleLine(width);
 }
 
 const generateUpperHalf = function(height, firstChar, secondChar) {
-  let topLine = createJustifiedLineWithOneStar(height);
+  let upperHalf = [];
+  let topLine = [createJustifiedLineWithOneStar(height)];
   let middlePart = middlePartOfUpperHalfDiamond(height,firstChar,secondChar);
-  return topLine+middlePart;
+  upperHalf = topLine.concat(middlePart);
+  return upperHalf;
 }
 
 const generateLowerHalf = function(height, firstChar, secondChar) {
-  let lowerPart = generateUpperHalf(height,firstChar,secondChar).split("\n");
-  return lowerPart.reverse().join("\n");
+  let lowerPart = generateUpperHalf(height,firstChar,secondChar);
+  return lowerPart.reverse();
 }
 
 module.exports={
