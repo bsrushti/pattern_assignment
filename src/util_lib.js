@@ -82,6 +82,12 @@ const createMiddleLine = function(width) {
   return delimiter+middleLine(width)+delimiter;
 }
 
+const generateUpperHalf = function(height, firstChar, secondChar) {
+  let topLine = createJustifiedLineWithOneStar(height);
+  let middlePart = middlePartOfUpperHalfDiamond(height,firstChar,secondChar);
+  return topLine+middlePart;
+}
+
 module.exports={
   repeatCharacters,
   repeatStars,
@@ -96,6 +102,7 @@ module.exports={
   middlePartOfHollowRectangle,
   createJustifiedLineWithOneStar,
   middlePartOfUpperHalfDiamond,
-  createMiddleLine
+  createMiddleLine,
+  generateUpperHalf
 };
 
