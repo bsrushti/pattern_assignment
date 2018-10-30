@@ -27,7 +27,7 @@ const generateHollowRectangle = function(height, width) {
 
 const generateAlternatingRectangle = function(height, width) {
   let elementArray = new Array(height).fill(width);
-  return elementArray.map(createAlternateLine(width)).join("\n");
+  return elementArray.map(createAlternateLine(width));
 }
 
 const generateRectangle = function(rectangleProperties) {
