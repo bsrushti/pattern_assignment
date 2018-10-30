@@ -88,6 +88,11 @@ const generateUpperHalf = function(height, firstChar, secondChar) {
   return topLine+middlePart;
 }
 
+const generateLowerHalf = function(height, firstChar, secondChar) {
+  let lowerPart = generateUpperHalf(height,firstChar,secondChar).split("\n");
+  return lowerPart.reverse().join("\n");
+}
+
 module.exports={
   repeatCharacters,
   repeatStars,
@@ -103,6 +108,7 @@ module.exports={
   createJustifiedLineWithOneStar,
   middlePartOfUpperHalfDiamond,
   createMiddleLine,
-  generateUpperHalf
+  generateUpperHalf,
+  generateLowerHalf
 };
 
