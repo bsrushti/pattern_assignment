@@ -53,7 +53,7 @@ const createAlternateLine = function() {
 
 const middlePartOfHollowRectangle = function(height, width) {
   let elementArray = new Array(height).fill(width);
-  return elementArray.map(generateHollowLine("*","*")).join("\n");
+  return elementArray.map(generateHollowLine("*","*"));
 };
 
 const createJustifiedLineWithOneStar = function(height) {

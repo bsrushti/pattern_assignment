@@ -17,14 +17,12 @@ const generateFilledRectangle = function(height, width) {
 }
 
 const generateHollowRectangle = function(height, width) {
-  let delimiter = "\n";
+  let hollowRectangle = [];
   let line = repeatStars(width);
-  let middlePart = "";
-  if(height > 2) {
-    middlePart = delimiter;
-    middlePart += middlePartOfHollowRectangle(height-2, width); 
-  }
-  return line + middlePart + delimiter + line;
+  hollowRectangle = middlePartOfHollowRectangle(height-2, width); 
+  hollowRectangle.unshift(line);
+  hollowRectangle.push(line);
+  return hollowRectangle;
 }
 
 const generateAlternatingRectangle = function(height, width) {

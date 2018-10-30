@@ -10,24 +10,22 @@ const { createRectangleObject } = utilLib;
 
 /* Rectangle pattern tests */
 
-let filled_4_5 = '';
-filled_4_5 += ['****', 
-               '****',
-               '****',
-               '****',
-               '****']; 
-assert.equal(generateRectangle(createRectangleObject([,,"filled",5,4])),filled_4_5);
+let filled_4_5 = [ '****', 
+                   '****',
+                   '****',
+                   '****',
+                   '****' ]; 
+assert.deepEqual(generateRectangle(createRectangleObject([,,"filled",5,4])),filled_4_5);
 
-let filled_5_8 = '';
-filled_5_8 += ['*****', 
-               '*****',
-               '*****',
-               '*****',
-               '*****',
-               '*****',
-               '*****',
-               '*****']; 
-assert.equal(generateRectangle(createRectangleObject([,,"filled",8,5])),filled_5_8);
+let filled_5_8 = [ '*****', 
+                   '*****',
+                   '*****',
+                   '*****',
+                   '*****',
+                   '*****',
+                   '*****',
+                   '*****' ]; 
+assert.deepEqual(generateRectangle(createRectangleObject([,,"filled",8,5])),filled_5_8);
 
 let alternate_2_2 = '';
 alternate_2_2 += '**'+'\n';
@@ -58,21 +56,20 @@ alternate_20_7 += '--------------------' + '\n';
 alternate_20_7 += '********************' ;
 assert.equal(generateRectangle(createRectangleObject([,,"alternate",7,20])),alternate_20_7);
 
-let hollow_2_2 = '**\n**';
-assert.equal(generateRectangle(createRectangleObject([,,"hollow",2,2])),hollow_2_2);
+let hollow_2_2 = [ '**', '**' ];
+assert.deepEqual(generateRectangle(createRectangleObject([,,"hollow",2,2])),hollow_2_2);
 
-let hollow_4_3 = '****\n*  *\n****';
-assert.equal(generateRectangle(createRectangleObject([,,"hollow",3,4])),hollow_4_3);
+let hollow_4_3 = [ '****', '*  *', '****' ];
+assert.deepEqual(generateRectangle(createRectangleObject([,,"hollow",3,4])),hollow_4_3);
 
-let hollow_20_7 = '';
-hollow_20_7 += '********************' + '\n';
-hollow_20_7 += '*                  *' + '\n';
-hollow_20_7 += '*                  *' + '\n';
-hollow_20_7 += '*                  *' + '\n';
-hollow_20_7 += '*                  *' + '\n';
-hollow_20_7 += '*                  *' + '\n';
-hollow_20_7 += '********************';
-assert.equal(generateRectangle(createRectangleObject([,,"hollow",7,20])),hollow_20_7);
+let hollow_20_7 = [ '********************',
+                    '*                  *',
+                    '*                  *',
+                    '*                  *',
+                    '*                  *',
+                    '*                  *',
+                    '********************' ];
+assert.deepEqual(generateRectangle(createRectangleObject([,,"hollow",7,20])),hollow_20_7);
 
 /* Triangle pattern tests */
 
