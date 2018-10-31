@@ -1,16 +1,18 @@
 const lib = require('./util_lib.js'); 
-const {repeatStars} = lib; 
-const {repeatHyphen} = lib; 
-const {repeatSpaces} = lib; 
-const {repeatCharacters} = lib; 
-const {generateHollowLine} = lib;
-const {createAlternateLine} = lib;
-const {middlePartOfHollowRectangle} = lib;
-const {createJustifiedLineWithOneStar} = lib;
-const {middlePartOfUpperHalfDiamond} = lib;
-const {createMiddleLine} = lib;
-const {generateUpperHalf} = lib;
-const {generateLowerHalf} = lib;
+const {
+  repeatStars, 
+  repeatHyphen, 
+  repeatSpaces, 
+  repeatCharacters, 
+  generateHollowLine,
+  createAlternateLine,
+  middlePartOfHollowRectangle,
+  createJustifiedLineWithOneStar,
+  middlePartOfUpperHalfDiamond,
+  createMiddleLine,
+  generateUpperHalf,
+  generateLowerHalf
+} = lib;
 
 const generateFilledRectangle = function(height, width) {
   return new Array(height).fill(width).map(repeatStars);
@@ -104,9 +106,4 @@ const generateDiamond = function(diamondProperties) {
 exports.generateRectangle = generateRectangle;
 exports.generateTriangle = generateTriangle;
 exports.generateDiamond = generateDiamond;
-
-
-
-
-
 

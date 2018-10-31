@@ -61,8 +61,9 @@ const createJustifiedLineWithOneStar = function(height) {
   return spaces + repeatStars(1) + spaces;
 };
 
-const middlePartOfUpperHalfDiamond = function(height, firstChar, secondChar) {
+const generateUpperHalf = function(height, firstChar, secondChar) {
   let middlePart = [];
+  let topLine = [createJustifiedLineWithOneStar(height)];
   let length = 3;
   height = Math.floor(height/2)-1;
   for(let index = 1; index <= height; index++) {
@@ -72,20 +73,13 @@ const middlePartOfUpperHalfDiamond = function(height, firstChar, secondChar) {
     length += 2;
     middlePart.push(spaces + stars + spaces); 
   }
-  return middlePart;
+  let upperHalf = topLine.concat(middlePart);
+  return upperHalf;
 }
 
 const createMiddleLine = function(width) {
   let middleLine = generateHollowLine("*", "*");
   return middleLine(width);
-}
-
-const generateUpperHalf = function(height, firstChar, secondChar) {
-  let upperHalf = [];
-  let topLine = [createJustifiedLineWithOneStar(height)];
-  let middlePart = middlePartOfUpperHalfDiamond(height,firstChar,secondChar);
-  upperHalf = topLine.concat(middlePart);
-  return upperHalf;
 }
 
 const generateLowerHalf = function(height, firstChar, secondChar) {
@@ -106,7 +100,6 @@ module.exports={
   createAlternateLine,
   middlePartOfHollowRectangle,
   createJustifiedLineWithOneStar,
-  middlePartOfUpperHalfDiamond,
   createMiddleLine,
   generateUpperHalf,
   generateLowerHalf

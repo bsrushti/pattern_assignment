@@ -9,7 +9,6 @@ const {generateHollowLine} = lib;
 const {createAlternateLine} = lib;
 const {middlePartOfHollowRectangle} = lib;
 const {createJustifiedLineWithOneStar} = lib;
-const {middlePartOfUpperHalfDiamond} = lib;
 const {createMiddleLine} = lib;
 const {generateUpperHalf} = lib;
 const {generateLowerHalf} = lib;
@@ -79,12 +78,6 @@ assert.equal(createJustifiedLineWithOneStar(3)," * ");
 assert.equal(createJustifiedLineWithOneStar(5),"  *  ");
 assert.equal(createJustifiedLineWithOneStar(7),"   *   ");
 assert.equal(createJustifiedLineWithOneStar(9),"    *    ");
-
-//========middlePartOfUpperHalfDiamond========
-
-assert.deepEqual(middlePartOfUpperHalfDiamond(3,"*","*"),[]);
-assert.deepEqual(middlePartOfUpperHalfDiamond(5,"*","*"),[' * * ']);
-assert.deepEqual(middlePartOfUpperHalfDiamond(7,"*","*"),['  * *  ', ' *   * ' ]);
 
 //========createMiddleLine========
 
