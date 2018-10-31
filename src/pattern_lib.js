@@ -11,11 +11,13 @@ const {
   middlePartOfUpperHalfDiamond,
   createMiddleLine,
   generateUpperHalf,
-  generateLowerHalf
+  generateLowerHalf,
+  generateFilledArray
 } = lib;
 
 const generateFilledRectangle = function(height, width) {
-  return new Array(height).fill(width).map(repeatStars);
+  let rowsOfWidth = generateFilledArray(height, width);
+  return rowsOfWidth.map(repeatStars);
 }
 
 const generateHollowRectangle = function(height, width) {
@@ -49,10 +51,9 @@ const generateLeftTriangle = function(height) {
 }
 
 const generateRightTriangle = function(height) {
-  let rightTriangle = generateLeftTriangle(height);
+  let rightTriangle = [];
   for(let rowIndex = 1; rowIndex <= height; rowIndex++) {
-    let triangleRow = rightTriangle.shift().split("").reverse().join("");
-    rightTriangle.push(triangleRow);
+    rightTriangle.push(repeatSpaces(height-rowIndex) + repeatStars(rowIndex));
   }
   return rightTriangle;
 }

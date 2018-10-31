@@ -87,6 +87,10 @@ const generateLowerHalf = function(height, firstChar, secondChar) {
   return lowerPart.reverse();
 }
 
+const generateFilledArray = function(length, character) {
+  return new Array(length).fill(character);
+}
+
 module.exports={
   repeatCharacters,
   repeatStars,
@@ -102,6 +106,7 @@ module.exports={
   createJustifiedLineWithOneStar,
   createMiddleLine,
   generateUpperHalf,
-  generateLowerHalf
+  generateLowerHalf,
+  generateFilledArray
 };
 
