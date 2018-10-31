@@ -30,7 +30,7 @@ const generateHollowRectangle = function(height, width) {
 }
 
 const generateAlternatingRectangle = function(height, width) {
-  let elementArray = new Array(height).fill(width);
+  let elementArray = generateFilledArray(height, width); 
   return elementArray.map(createAlternateLine(width));
 }
 
