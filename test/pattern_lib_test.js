@@ -1,12 +1,17 @@
 const assert = require('assert');
 const patternLib = require('../src/pattern_lib.js');  
 const utilLib = require('../src/util_lib.js');  
-const { generateRectangle } = patternLib; 
-const { generateTriangle } = patternLib; 
-const { generateDiamond } = patternLib; 
-const { createDiamondObject } = utilLib;
-const { createTriangleObject } = utilLib;
-const { createRectangleObject } = utilLib;
+const { 
+  generateRectangle, 
+  generateTriangle, 
+  generateDiamond,
+} = patternLib;
+
+const {
+  createDiamondObject,
+  createTriangleObject,
+  createRectangleObject
+} = utilLib;
 
 /* Rectangle pattern tests */
 

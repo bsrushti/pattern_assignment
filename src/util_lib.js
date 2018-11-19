@@ -91,7 +91,7 @@ const generateFilledArray = function(length, character) {
   return new Array(length).fill(character);
 }
 
-module.exports={
+module.exports = {
   repeatCharacters,
   repeatStars,
   repeatSpaces,

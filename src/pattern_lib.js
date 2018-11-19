@@ -53,7 +53,9 @@ const generateLeftTriangle = function(height) {
 const generateRightTriangle = function(height) {
   let rightTriangle = [];
   for(let rowIndex = 1; rowIndex <= height; rowIndex++) {
-    rightTriangle.push(repeatSpaces(height-rowIndex) + repeatStars(rowIndex));
+    let spaces = repeatSpaces(height-rowIndex);
+    let stars = repeatStars(rowIndex);
+    rightTriangle.push(spaces + stars);
   }
   return rightTriangle;
 }
